@@ -4,13 +4,17 @@ public class ImpactJavaChallenge {
 
     public static void main(String[] args) {
         int x[] = {1, 1, 3, 1, 2, 3, 3, 3, 1};
-
+        System.out.println("toGoodString Tests:");
         System.out.println(toGoodString("HellOOOOOO ThErEE"));
 
+        System.out.println("\nlistGenerator Tests:");
         System.out.println(listGenerator(x));
+        System.out.println(listGenerator(new int[]{1,2,3}));
 
+        System.out.println("\nduplicates Tests:");
         System.out.println(duplicates(x));
 
+        System.out.println("\ncompleteValidator Tests:");
         System.out.println(completeValidator("Hi There"));
         System.out.println(completeValidator("abcdefghijklmnopqrsTUVWXYZ"));
     }
