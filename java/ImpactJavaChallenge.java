@@ -7,16 +7,36 @@ public class ImpactJavaChallenge {
         System.out.println("listGenerator Tests:");
         System.out.println(listGenerator(x));
         System.out.println(listGenerator(new int[]{1, 2, 3}));
+        System.out.println(listGenerator(new int[]{}));
+        System.out.println(listGenerator(new int[]{1,1}));
+        System.out.println(listGenerator(new int[]{1,1,5}));
+        System.out.println(listGenerator(new int[]{1,5,5}));
 
         System.out.println("\ntoGoodString Tests:");
         System.out.println(toGoodString("hi there!!!!\\!"));
+        System.out.println(toGoodString(""));
+        System.out.println(toGoodString("hii"));
+        System.out.println(toGoodString("hii there."));
+        System.out.println(toGoodString("hh"));
+        System.out.println(toGoodString("h"));
 
         System.out.println("\nduplicates Tests:");
         System.out.println(duplicates(x));
+        System.out.println(duplicates(new int[]{}));
+        System.out.println(duplicates(new int[]{1}));
+        System.out.println(duplicates(new int[]{0,0}));
+        System.out.println(duplicates(new int[]{1,2,3,1,2,3}));
+        System.out.println(duplicates(new int[]{1,1,1,1,1,1}));
+        System.out.println(duplicates(new int[]{1,2,3,4,4,5,6,7,8,9}));
+
 
         System.out.println("\ncompleteValidator Tests:");
         System.out.println(completeValidator("Hi There"));
         System.out.println(completeValidator("abcdefghijklmnopqrsTUVWXZzzzzzY"));
+        System.out.println(completeValidator("abcdefghijk lmnopqrsTUVWXZzzzzzY"));
+        System.out.println(completeValidator("abcdefghijk lmnopqrsTUVWXZzzzzzY?"));
+        System.out.println(completeValidator(""));
+        System.out.println(completeValidator("abcdefghijklmnopq123456789"));
     }
 
     // Challenge #1
