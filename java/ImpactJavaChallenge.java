@@ -27,13 +27,10 @@ public class ImpactJavaChallenge {
     private static String listGenerator(int[] x) {
         String listOfNumbers = "";
 
-        // if array is empty, return no numbers
         if (x.length == 0) listOfNumbers = "No Numbers";
 
-        // if array only has one value, return value as a string
         if (x.length == 1) listOfNumbers = String.valueOf(x[0]);
 
-        // if array has more than one value
         if (x.length > 1) {
             Arrays.sort(x);
 
@@ -42,25 +39,23 @@ public class ImpactJavaChallenge {
                 if (index == 0) {
                     listOfNumbers += (x[index + 1] == x[index] + 1) ? x[index] : (x[index] + ", ");
                 }
-
                 // if last value
                 if (index == x.length - 1) {
                     listOfNumbers += (x[index - 1] == x[index] - 1) ? ("-" + x[index]) : (x[index]);
                 }
-
-                // all values between first and last
+                // for all other values
                 if (index > 0 && index < (x.length - 1)) {
-                    //if previous is sequential
+                    // if previous is sequential
                     if (x[index - 1] == x[index] - 1) {
+                        // if next is sequential, move on to next iteration
                         // if next is not sequential
                         if (x[index + 1] != x[index] + 1) listOfNumbers += ("-" + x[index] + ", ");
-                        // if next is sequential, next iteration
                     }
                     // if previous is not sequential
                     else {
                         // if next is sequential
                         if (x[index + 1] == x[index] + 1) listOfNumbers += x[index];
-                            // if next is not sequential
+                        // if next is not sequential
                         else listOfNumbers += (x[index] + ", ");
                     }
                 }
@@ -79,8 +74,11 @@ public class ImpactJavaChallenge {
 
         for (int index = 0; index < S.length(); index++) {
             goodString += S.charAt(index);
+
+            // if the character is not a punctuation mark
             if (punctuationMarks.indexOf(S.charAt(index)) < 0) {
                 while (index < S.length() - 1) {
+                    // skip duplicates
                     if (S.charAt(index) == S.charAt(index + 1)) {
                         index++;
                     } else break;
