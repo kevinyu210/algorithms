@@ -26,7 +26,7 @@ public class ImpactJavaChallenge {
         System.out.println(distinctNumbers(new int[]{0,0}));
         System.out.println(distinctNumbers(new int[]{1,2,3,1,2,3}));
         System.out.println(distinctNumbers(new int[]{1,1,1,1,1,1}));
-        System.out.println(distinctNumbers(new int[]{1,2,3,4,4,5,6,7,8,9}));
+        System.out.println(distinctNumbers(new int[]{9,1,2,3,4,4,5,6,7,8}));
 
 
         System.out.println("\ncompleteValidator Tests:");
