@@ -2,21 +2,23 @@ import java.util.*;
 
 public class ImpactJavaChallenge {
     public static void main(String[] args) {
-        int x[] = {1, 5, 6, 1, 3, 1, 2, 3, 3, 3, 1, 6};
-
         System.out.println("listGenerator Tests:");
+        int x[] = {0, 1, 5, 6, 1, 3, 1, 2, 3, 3, 3, 1, 6, 100, 101};
         System.out.println(listGenerator(x));
-        System.out.println(listGenerator(new int[]{1, 2, 3}));
+        System.out.println(listGenerator(new int[]{1}));
 
         System.out.println("\ntoGoodString Tests:");
-        System.out.println(toGoodString("hi there!!!!\\!"));
+        System.out.println(toGoodString("hiiiiii ttttttheree!!!!\\!"));
+        System.out.println(toGoodString(""));
 
-        System.out.println("\nduplicates Tests:");
-        System.out.println(duplicates(x));
+        System.out.println("\ndistinctNumber Tests:");
+        System.out.println(distinctNumbers(x));
+        System.out.println(distinctNumbers(new int[]{1}));
 
         System.out.println("\ncompleteValidator Tests:");
-        System.out.println(completeValidator("Hi There"));
-        System.out.println(completeValidator("abcdefghijklmnopqrsTUVWXZzzzzzY"));
+        System.out.println(completeValidator("Hi There!"));
+        System.out.println(completeValidator(""));
+        System.out.println(completeValidator("abcdefghijklmnopqrsTUVWXZzzzzz..!y"));
     }
 
     // Challenge #1
@@ -69,16 +71,12 @@ public class ImpactJavaChallenge {
     // assuming all lowercase
     // not deleting duplicate punctuation marks
     private static String toGoodString(String S) {
-        String punctuationMarks = ",.?!-;:()\"'";
         String goodString = "";
 
         for (int index = 0; index < S.length(); index++) {
             goodString += S.charAt(index);
-
-            // if the character is not a punctuation mark
-            if (punctuationMarks.indexOf(S.charAt(index)) < 0) {
+            if (Character.isLetter(S.charAt(index))) {
                 while (index < S.length() - 1) {
-                    // skip duplicates
                     if (S.charAt(index) == S.charAt(index + 1)) {
                         index++;
                     } else break;
@@ -91,20 +89,16 @@ public class ImpactJavaChallenge {
 
     // Challenge #3
     // assume output returned in ascending order
-    private static ArrayList<Integer> duplicates(int[] x) {
+    private static ArrayList<Integer> distinctNumbers(int[] x) {
         Set<Integer> numbers = new HashSet<Integer>();
-        ArrayList<Integer> duplicates = new ArrayList<>();
 
-        for (int index = 0; index < x.length; index++) {
-            if (!numbers.contains(x[index])) {
-                numbers.add(x[index]);
-            } else {
-                duplicates.add(x[index]);
-            }
+        for(int number: x) {
+            numbers.add(number);
         }
 
-        Collections.sort(duplicates);
-        return duplicates;
+        ArrayList<Integer> distinct = new ArrayList<Integer>(numbers);
+        Collections.sort(distinct);
+        return distinct;
     }
 
     // Challenge #4
@@ -115,7 +109,9 @@ public class ImpactJavaChallenge {
 
         if (x.length() >= 26) {
             for (int index = 0; index < lowerCaseString.length(); index++) {
-                letters.add(lowerCaseString.charAt(index));
+                if (Character.isLetter(lowerCaseString.charAt(index))) {
+                    letters.add(lowerCaseString.charAt(index));
+                }
             }
         }
 
